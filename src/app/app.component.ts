@@ -1,5 +1,5 @@
 import { GoogleService } from './shared/google.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -17,20 +17,24 @@ export class AppComponent {
 searchword: string;
 
   inputKeyword: FormControl;
-
+  // this.inputKeyword =
   constructor(private googleService: GoogleService){
     this.inputKeyword = new FormControl();
     // this.inputKeyword = this.googleService.input;
   }
 
+
+  @Input() search: string; 
+  
   ngOnInit() {  
-   
+  //  this.inputKeyword = this.googleService.input
   // this.searchData();
     
   } 
   searchData(){ 
       return this.googleService.getGoogle().subscribe(x =>{
         this.googleData= x.items;
+        this.search = this.googleService.input;
         console.log(this.googleData)
        }, error => {
          console.log(error)

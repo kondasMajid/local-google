@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class GoogleService {
   key = environment.apiKey;
   cx = environment.cx;
-  input: string = "facebook";
+  input: string;
 
   constructor(private http: HttpClient) {}
 
@@ -26,13 +26,6 @@ export class GoogleService {
      + environment.apiKey + '&cx=' + environment.cx + '&q=' + this.input,
     this.requestOptions)
 
-    // return   this.http.get(`https://www.googleapis.com/customsearch/v1?key=
-    //  environment.apiKey&cx=environment.cx&q=this.input`, this.requestOptions) }
-
-  //     return this.http.get(
-  //     "https://www.googleapis.com/customsearch/v1?key={environment.apiKey}&cx={environment.cx}&q={input}&num={10}", {requestOptions});
-
-  
-    
+ 
   }
 }
