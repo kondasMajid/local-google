@@ -8,7 +8,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 
-// https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=017576662512468239146:omuauf_lfve&q=lectures
 
 export class GoogleService {
 
@@ -26,16 +25,11 @@ export class GoogleService {
   requestOptions = {
     headers: new HttpHeaders(this.headerDict)
   };
-
-  // Read user data
-  // getDatas (){
-  //      return this.http.get(this.apis, this.requestOptions );
-  // }
-
-  // https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=017576662512468239146:omuauf_lfve&q=lectures
+ 
 
   getGoogle() {
-  return   this.http.get('https://www.googleapis.com/customsearch/v1?key=' + environment.apiKey + '&cx=' + environment.cx+'&q='+this.input, 
+  return   this.http.get('https://www.googleapis.com/customsearch/v1?key='
+   + environment.apiKey + '&cx=' + environment.cx+'&q='+this.input, 
   this.requestOptions)
   }
 }
