@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 
 
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,38 +12,30 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'google';
-  googles : any;
+  public googleData:any;
 
-  searchInput: FormControl;
+searchword: string;
 
-  constructor(private google: GoogleService){
-    this.searchInput = new FormControl();
+  inputKeyword: FormControl;
+
+  constructor(private googleService: GoogleService){
+    this.inputKeyword = new FormControl();
+    // this.inputKeyword = this.googleService.input;
   }
 
-  ngOnInit() {
-    
-  this.searchData();
-    
-  }
-  searchData(){
-    this.searchInput.valueChanges.pipe(debounceTime(500),
-    distinctUntilChanged())
-    .subscribe(() => {
-      this.google.getGoogle().subscribe(data => {
-        this.googles = data;
-        this.googles = Array.of(this.googles)
-        console.log('qww',this.googles)
-      }, err => { console.log(err)})
-    })
-    // )
-    // this.google.getGoogle().subscribe(x =>{
-    //     this.googles = x.items;
-    //     console.log(this.googles)
-    //    }, error => {
-    //      console.log(error)
-    //    })
-       
+  ngOnInit() {  
    
+  // this.searchData();
     
-  }
+  } 
+  searchData(){ 
+      return this.googleService.getGoogle().subscribe(x =>{
+        this.googleData= x.items;
+        console.log(this.googleData)
+       }, error => {
+         console.log(error)
+       })
+ }
+
 }
+ 
