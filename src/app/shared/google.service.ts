@@ -1,9 +1,8 @@
-// import { environment } from './../../environments/environment.prod';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-// import {environment}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +13,8 @@ export class GoogleService {
   key = environment.apiKey ;
   cx = environment.cx;
   input ;
-  // googleURL = 'https://www.googleapis.com/customsearch/v1?key=' + environment.apiKey + '&cx=' + environment.cx + '&q=lectures';
-  constructor(private http: HttpClient) { }
+
+ constructor(private http: HttpClient) { }
 
 
   headerDict = {
