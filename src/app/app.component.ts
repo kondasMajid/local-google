@@ -14,13 +14,16 @@ export class AppComponent {
   title = 'google';
   public googleData:any;
 
-searchword: string;
+searchword: string="";
 
-  inputKeyword: FormControl;
+ inputKeyword :  string = '';
+ 
+ 
+  // inputKeyword: FormControl;
   // this.inputKeyword =
   constructor(private googleService: GoogleService){
-    this.inputKeyword = new FormControl();
-    // this.inputKeyword = this.googleService.input;
+    // this.inputKeyword = new FormControl();
+  //  this.inputKeyword =  this.googleService.input;
   }
 
 
@@ -32,13 +35,15 @@ searchword: string;
     
   } 
   searchData(){ 
-      return this.googleService.getGoogle().subscribe(x =>{
+      return this.googleService.getGoogle(this.inputKeyword).subscribe(x =>{
         this.googleData= x.items;
-        this.search = this.googleService.input;
+        console.log("input ",this.inputKeyword)
+        // this.inputKeyword = this.googleService.input;
         console.log(this.googleData)
        }, error => {
          console.log(error)
        })
+       
  }
 
 }

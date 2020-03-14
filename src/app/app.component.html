@@ -25,7 +25,7 @@
                </svg>
             </button>
             <input id="search" type="text" placeholder="" value=""
-              style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [formControl]="inputKeyword"
+              style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" 
               name="search" />
           </div>
         </div>
@@ -57,7 +57,7 @@
     
   </div>
   <div *ngIf="!googleData">
-    <p>No search result</p>
+    <!-- <p>No search result</p> -->
   </div>
 
   <div class="" style="text-align: center;">
