@@ -12,7 +12,7 @@
 </div>
 
 <div class="container" *ngIf="!googleData">
-  <img src="../assets/google2.png" style=" " class="center" />
+  <img src="../assets/google2.png"  class="center" />
 </div>
 
 <!-- <body> -->
@@ -71,13 +71,9 @@
   </form>
 </div>
 
-<div *ngIf="googleData" style="margin-left:220px">
-  <!-- <p>{{passData}}</p> -->
-  <!-- <div *ngFor="let i of passData  | keyvalue "> -->
-    <!-- {{i.key}}:{{i.value}} -->
-    <!-- <pre><p>{{i.formattedSearchTime}} </p></pre> -->
+<div *ngIf="googleData" style="margin-left:25%">
     <p style="margin-top: -10px;"> About {{passDataResults}}  results ({{passDataSeconds  }}) seconds  </p>
-  <!-- </div> -->
+
 </div>
 
 <div *ngIf="googleData">
@@ -93,16 +89,9 @@
         <div class="col-md-9">
           <div style="margin-top: 28px;margin-bottom: -4px">
             <cite class="iUh30 bc tjvcx">{{item.displayLink}} &rsaquo; {{inputKeyword}}</cite></div>
-
             <h4 style="color: #1A0DAB"><a href="{{ item?.link }}" target="_blank">
               {{ item?.title }}</a></h4>
-
-          <!-- <h4 class="mt-5" style="color: #1A0DAB">{{ item.title }} </h4> -->
           <p class="lead">{{ item?.snippet }}</p>
-          <!-- <p>
-            <a href="{{ item?.link }}" target="_blank">
-              {{ item?.formattedUrl }}</a>
-          </p> -->
         </div>
       </div>
     </div>
