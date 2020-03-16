@@ -17,7 +17,7 @@
 
 <!-- <body> -->
 <div class="s006">
-  <form *ngIf="!googleData">
+  <form *ngIf="!googleData">  
     <fieldset>
       <div class="inner-form">
         <div class="input-field">
@@ -63,14 +63,21 @@
                 name="search" />
                 
             </div>
-            <div *ngFor="let i of allGoogleData ">
-              <p style="margin-top: 10px;"> About {{i?.searchInformation?.searchTime }}  results  seconds  </p>
-          </div>
+            
           </div>
         </fieldset>
       </div>
     </div>
   </form>
+</div>
+
+<div *ngIf="googleData" style="margin-left:220px">
+  <!-- <p>{{passData}}</p> -->
+  <!-- <div *ngFor="let i of passData  | keyvalue "> -->
+    <!-- {{i.key}}:{{i.value}} -->
+    <!-- <pre><p>{{i.formattedSearchTime}} </p></pre> -->
+    <p style="margin-top: -10px;"> About {{passDataResults}}  results ({{passDataSeconds  }}) seconds  </p>
+  <!-- </div> -->
 </div>
 
 <div *ngIf="googleData">
@@ -80,16 +87,22 @@
       <div class="row">
         <div class="col-md-3">
           <!-- <img
-            src="{{ item.pagemap.cse_image.src }}"
+            src="{{ item.pagemap?.cse_image?.src }}"
             alt="Organization Avatar"          /> -->
         </div>
         <div class="col-md-9">
-          <h3 class="mt-5">{{ item.title }}</h3>
-          <p class="lead">{{ item.snippet }}</p>
-          <p>
-            <a href="{{ item.link }}" target="_blank">
-              {{ item.formattedUrl }}</a>
-          </p>
+          <div style="margin-top: 28px;margin-bottom: -4px">
+            <cite class="iUh30 bc tjvcx">{{item.displayLink}} &rsaquo; {{inputKeyword}}</cite></div>
+
+            <h4 style="color: #1A0DAB"><a href="{{ item?.link }}" target="_blank">
+              {{ item?.title }}</a></h4>
+
+          <!-- <h4 class="mt-5" style="color: #1A0DAB">{{ item.title }} </h4> -->
+          <p class="lead">{{ item?.snippet }}</p>
+          <!-- <p>
+            <a href="{{ item?.link }}" target="_blank">
+              {{ item?.formattedUrl }}</a>
+          </p> -->
         </div>
       </div>
     </div>
@@ -117,7 +130,9 @@
     <div class="container">
       <span class="text-muted">
         search result of
-        <span style="color:indigo">{{ inputKeyword }}</span></span>
+        <span style="color:indigo">{{ inputKeyword  }}</span></span>
     </div>
   </footer>
 </div>
+
+<router-outlet></router-outlet>

@@ -1,6 +1,8 @@
 import { environment } from "./../../environments/environment";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { IGoogleData } from './search.model';
+import { Observable } from 'rxjs/operators';
 
 @Injectable({
   providedIn: "root"
@@ -21,8 +23,8 @@ export class GoogleService {
   };
 
   
-  getGoogle(input: string) {
-    return   this.http.get('https://www.googleapis.com/customsearch/v1?key='
+  getGoogle(input: string) : Observable<IGoogleData>{
+    return   this.http.get<IGoogleData[]>('https://www.googleapis.com/customsearch/v1?key='
      + environment.apiKey + '&cx=' + environment.cx + '&q=' + input,
     this.requestOptions)
   }

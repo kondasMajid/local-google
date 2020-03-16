@@ -1,3 +1,4 @@
+import { IGoogleData } from './shared/search.model';
 import { async } from '@angular/core/testing';
 import { GoogleService } from './shared/google.service';
 import { Component, Input } from '@angular/core';
@@ -13,13 +14,17 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'google';
-  public googleData  ;
+  public googleData : any[];
+  
+  searchword: string="";
+  public passDataSeconds: any[]=[];
+  
+  public passDataResults: any[]=[];
 
-searchword: string="";
-
- inputKeyword :  string = '';
- public allGoogleData;
+  inputKeyword :  string = '';
+  public allGoogleData;
    
+  convert;
   // inputKeyword: FormControl;
   // this.inputKeyword =
   constructor(private googleService: GoogleService){
@@ -35,15 +40,32 @@ searchword: string="";
   // this.searchData();
     
   } 
-  searchData(){ 
+  searchData() { 
       return this.googleService.getGoogle(this.inputKeyword).subscribe(x =>{
-        this.googleData= x.items;
-        this.allGoogleData = x;
-        // console.log("input ",this.inputKeyword)
-        console.log("data", this.allGoogleData)
-        console.log(this.googleData)
+       
+        
+      
+       this.googleData = x.items;
+       console.log('googleData', this.googleData);
+       
+       this.passDataResults = x.searchInformation.totalResults;
+      //  console.log('passDataResults', this.passDataResults);
+        
+
+       this.passDataSeconds = x.searchInformation.formattedSearchTime;
+      //  console.log('passDataSeconds', this.passDataSeconds);
+        
+
+       this.convert = x.searchInformation;
+       console.log('convert', this.convert);
+        // this.allGoogleData = x;
+        // console.log("allGoogleData", this.allGoogleData)
+        
+        //returning the titles,ddescription,link, displaylinks etc
+      //  this.googleData= x;
+        // console.log('googleData',this.googleData)
        }, error => {
-         console.log(error)
+         console.log("error here",error)
        })
        
  }
