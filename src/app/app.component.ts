@@ -12,13 +12,13 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'google';
-  public googleData:any;
+  public googleData : any[] =[] ;
 
 searchword: string="";
 
  inputKeyword :  string = '';
- 
- 
+ public allGoogleData: any;
+   
   // inputKeyword: FormControl;
   // this.inputKeyword =
   constructor(private googleService: GoogleService){
@@ -37,7 +37,9 @@ searchword: string="";
   searchData(){ 
       return this.googleService.getGoogle(this.inputKeyword).subscribe(x =>{
         this.googleData= x.items;
-        console.log("input ",this.inputKeyword)
+        this.allGoogleData = x.searchInformation;
+        // console.log("input ",this.inputKeyword)
+        console.log("data", this.allGoogleData.searchTime)
         // this.inputKeyword = this.googleService.input;
         console.log(this.googleData)
        }, error => {

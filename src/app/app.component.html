@@ -7,58 +7,96 @@
 </ul>
 <!-- </div> -->
 
-<div class="container">
-  <img src="../assets/google2.png" style=" margin-top: %" class="center" />
+<div class="container" *ngIf="googleData" style="margin-top: 30px;">
+  <!-- <img src="../assets/google2.png" style=" " class="center" /> -->
 </div>
 
-<body>
-  <div class="s006">
-    <form>
-      <fieldset>
-        <div class="inner-form">
-          <div class="input-field">
-            <button class="btn-search" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                </path>
-               </svg>
-            </button>
-            <input id="search" type="text" placeholder="" value=""
-              style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" 
-              name="search" />
-          </div>
-        </div>
-      </fieldset>
-    </form>
-  </div>
+<div class="container" *ngIf="!googleData">
+  <img src="../assets/google2.png" style=" " class="center" />
+</div>
 
-  <div *ngIf="googleData">
-    <!-- Display list of searc results -->
-    <main role="main" class="flex-shrink-0" *ngFor="let item of googleData">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <!-- <img
+<!-- <body> -->
+<div class="s006">
+  <form *ngIf="!googleData">
+    <fieldset>
+      <div class="inner-form">
+        <div class="input-field">
+          <button class="btn-search" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+              </path>
+            </svg>
+          </button>
+          <input id="search" type="text" placeholder="" value=""
+            style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" name="search" />
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <form *ngIf="googleData" class="showingForm" style="margin-top: 50px;     margin-right: 40%;">
+    <div class="row">
+      <div class="col-md-4">
+        <a [routerLink]="['index']">
+          <img src="../assets/google2.png" style=" " class="center" />
+        </a>
+      </div>
+      <div class="col-md-8">
+        <fieldset>
+          <div class="inner-form">
+            <div class="input-field">
+              <!-- <button class="btn-search" type="button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    ></path>
+                  </svg>
+                </button> -->
+              <input id="search" type="text" placeholder="" value=""
+                style="border: 1px solid rgb(209, 209, 209); margin-top: 20px; width: 850px;" [(ngModel)]="inputKeyword"
+                name="search" />
+                
+            </div>
+            <div *ngFor="let i of allGoogleData ">
+              <p style="margin-top: 10px;"> About {{i.searchTime }}  results  seconds  </p>
+          </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="googleData">
+  <!-- Display list of searc results -->
+  <main role="main" class="flex-shrink-0" *ngFor="let item of googleData">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <!-- <img
             src="{{ item.pagemap.cse_image.src }}"
             alt="Organization Avatar"          /> -->
-          </div>
-          <div class="col-md-9">
-            <h3 class="mt-5">{{ item.title }}</h3>
-            <p class="lead">{{item.snippet}}  </p>
-            <p> <a href="{{item.link}}" target="_blank"> {{item.displayLink}}</a> </p>
-          </div>
         </div>
-       
+        <div class="col-md-9">
+          <h3 class="mt-5">{{ item.title }}</h3>
+          <p class="lead">{{ item.snippet }}</p>
+          <p>
+            <a href="{{ item.link }}" target="_blank">
+              {{ item.formattedUrl }}</a>
+          </p>
+        </div>
       </div>
-    </main>
-
-    
-    
-  </div>
-  <div *ngIf="googleData">
-    <!-- <p>No search result</p> -->
-  </div>
+    </div>
+  </main>
+</div>
+<div *ngIf="!googleData">
+  <!-- <p>No search result</p> -->
 
   <div class="" style="text-align: center;">
     <button mat-flat-button class="google-search " (click)="searchData()">
@@ -72,9 +110,21 @@
       Google offered in: <span style="color:#1a0dab">Hausa Akan Ewe Ga</span>
     </p>
   </div>
-</body>
+</div>
 
-<!-- <footer class="footer mt-auto py-3">
+<div *ngIf="googleData">
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">
+        search result of
+        <span style="color:indigo">{{ inputKeyword }}</span></span>
+    </div>
+  </footer>
+</div>
+<!-- </body> -->
+<!-- <br> -->
+
+<!-- <footer class="footer mt-auto py-3 footer" style="">
   <div class="container">
     <span class="text-muted">Ghana</span>
   </div>
