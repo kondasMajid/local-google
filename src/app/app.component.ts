@@ -40,7 +40,6 @@ searchword: string="";
         this.allGoogleData = x.searchInformation;
         // console.log("input ",this.inputKeyword)
         console.log("data", this.allGoogleData.searchTime)
-        // this.inputKeyword = this.googleService.input;
         console.log(this.googleData)
        }, error => {
          console.log(error)
