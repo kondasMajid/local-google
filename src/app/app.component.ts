@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { GoogleService } from './shared/google.service';
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -12,12 +13,12 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'google';
-  public googleData : any[] =[] ;
+  public googleData  ;
 
 searchword: string="";
 
  inputKeyword :  string = '';
- public allGoogleData: any;
+ public allGoogleData;
    
   // inputKeyword: FormControl;
   // this.inputKeyword =
@@ -37,9 +38,9 @@ searchword: string="";
   searchData(){ 
       return this.googleService.getGoogle(this.inputKeyword).subscribe(x =>{
         this.googleData= x.items;
-        this.allGoogleData = x.searchInformation;
+        this.allGoogleData = x;
         // console.log("input ",this.inputKeyword)
-        console.log("data", this.allGoogleData.searchTime)
+        console.log("data", this.allGoogleData)
         console.log(this.googleData)
        }, error => {
          console.log(error)

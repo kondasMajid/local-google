@@ -64,7 +64,7 @@
                 
             </div>
             <div *ngFor="let i of allGoogleData ">
-              <p style="margin-top: 10px;"> About {{i.searchTime }}  results  seconds  </p>
+              <p style="margin-top: 10px;"> About {{i?.searchInformation?.searchTime }}  results  seconds  </p>
           </div>
           </div>
         </fieldset>
@@ -121,11 +121,3 @@
     </div>
   </footer>
 </div>
-<!-- </body> -->
-<!-- <br> -->
-
-<!-- <footer class="footer mt-auto py-3 footer" style="">
-  <div class="container">
-    <span class="text-muted">Ghana</span>
-  </div>
-</footer> -->
