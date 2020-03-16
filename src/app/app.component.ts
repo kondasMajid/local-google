@@ -44,24 +44,25 @@ export class AppComponent {
       return this.googleService.getGoogle(this.inputKeyword).subscribe(x =>{
        
         
-      
+         //returning the titles,ddescription,link, displaylinks etc
        this.googleData = x.items;
        console.log('googleData', this.googleData);
        
+       //returung the number of results found by the search
        this.passDataResults = x.searchInformation.totalResults;
       //  console.log('passDataResults', this.passDataResults);
         
-
+        //returning the result of the seconds to find result
        this.passDataSeconds = x.searchInformation.formattedSearchTime;
       //  console.log('passDataSeconds', this.passDataSeconds);
         
 
-       this.convert = x.searchInformation;
+       this.convert = x.queries;
        console.log('convert', this.convert);
-        // this.allGoogleData = x;
-        // console.log("allGoogleData", this.allGoogleData)
+
+    
         
-        //returning the titles,ddescription,link, displaylinks etc
+       
       //  this.googleData= x;
         // console.log('googleData',this.googleData)
        }, error => {
