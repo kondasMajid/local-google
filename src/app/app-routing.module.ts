@@ -1,3 +1,4 @@
+import { NextpageComponent } from './nextpage/nextpage.component';
 import { IndexComponent } from './index/index.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,7 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'index', component: IndexComponent },
-  // { path: 'hero/:id',      component: HeroDetailComponent },
+  { path: 'nextpage',      component: NextpageComponent },
+  // { path: 'hero/:id',      component: NextpageComponent },
   
 ];
 

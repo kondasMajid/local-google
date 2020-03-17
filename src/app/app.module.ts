@@ -11,11 +11,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchHeaderComponent } from './search-header/search-header.component';
+import { NextpageComponent } from './nextpage/nextpage.component';
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    SearchHeaderComponent
+    SearchHeaderComponent,
+    NextpageComponent
   ],
   imports: [
     BrowserModule,

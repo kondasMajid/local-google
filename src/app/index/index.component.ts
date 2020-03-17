@@ -9,12 +9,10 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
- 
-  
   title = 'google';
   googleData : any[];
   
-  searchword: string="";
+  searchword: string=""; 
   passDataSeconds: any[]=[];
   
   passDataResults: any[]=[];
@@ -32,19 +30,16 @@ export class IndexComponent implements OnInit {
   //  this.inputKeyword =  this.googleService.input;
   }
 
-
   @Input() search: string; 
-  
+ 
   ngOnInit() {  
-  //  this.inputKeyword = this.googleService.input
   // this.searchData();
-    
   } 
 
   nextPage(){
     return this.googleService.getGoogle(this.inputKeyword)
       .subscribe(y => {
-        this.nextpage = y;
+        this.nextpage = y.queries.nextPage;
         this.route.navigate(['/nextpage'])
         console.log(this.nextpage)
       });
@@ -55,7 +50,7 @@ export class IndexComponent implements OnInit {
   searchData() { 
       return this.googleService.getGoogle(this.inputKeyword).subscribe(x =>{
        
-        
+        this.route.navigate(['/app-index']) 
          //returning the titles,ddescription,link, displaylinks etc
        this.googleData = x.items;
        console.log('googleData', this.googleData);
@@ -72,16 +67,10 @@ export class IndexComponent implements OnInit {
        this.convert = x.queries;
       //  console.log('convert', this.convert);
 
-    
-        
-       
       //  this.googleData= x;
         // console.log('googleData',this.googleData)
        }, error => {
          console.log("error here",error)
        })
-       
- }
-
-
+   }
 } 
