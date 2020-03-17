@@ -7,7 +7,7 @@ import { IGoogleData } from './search.model';
 
 @Injectable({
   providedIn: "root"
-})
+}) 
 export class GoogleService {
   key = environment.apiKey;
   cx = environment.cx;
