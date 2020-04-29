@@ -1,10 +1,6 @@
-<ul class="ul">
-    <li>Gmail</li>
-    <li>Images</li>
-    <i class="material-icons" style="color: grey;">apps</i>
-    <img src="../assets/user.jpg" width="40px" class="img" />
-  </ul>
-  <!-- </div> -->
+<!-- header  -->
+<search-header></search-header>
+<!-- header  -->
   
   <div class="container" *ngIf="googleData" style="margin-top: 30px;">
     <!-- <img src="../assets/google2.png" style=" " class="center" /> -->
@@ -16,6 +12,8 @@
   
   <!-- <body> -->
   <div class="s006">
+
+    <!-- if theres no data request made -->
     <form *ngIf="!googleData">  
       <fieldset>
         <div class="inner-form">
@@ -27,18 +25,29 @@
                 </path>
               </svg>
             </button>
-            <input id="search" type="text" placeholder="" value=""
-              style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" name="search" />
-          </div>
+            <!-- <input id="search" type="text" placeholder=" google search" value=""
+              style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" name="search" /> -->
+
+              <!-- very new enter to proceed search  -->
+              <input id="search" type="text" placeholder=" google search" value=""
+              style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" #input  (keyup.enter)="searchData(input.value)" name="search" />
+         
+              
+              <!-- your approach  -->
+         <!-- <input id="search" type="text" placeholder="" value=""
+          style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" (keyup)="searchData(event)" name="inputKeyword" />  -->
+     
+            </div>
         </div>
       </fieldset>
-    </form>
+    </form> 
   
+    <!-- if theres theres data request made -->
     <form *ngIf="googleData" class="showingForm" style="margin-top: 50px;     margin-right: 40%;">
       <div class="row">
         <div class="col-md-4">
           <a [routerLink]="['index']">
-            <img src="../assets/google2.png" style=" " class="center" />
+            <img src="../assets/google2.png"  class="center" />
           </a>
         </div>
         <div class="col-md-8">
@@ -70,11 +79,12 @@
     </form>
   </div>
   
+  <!-- if theres theres data request made -->
   <div *ngIf="googleData" style="margin-left:25%">
       <p style="margin-top: -10px;"> About {{passDataResults}}  results ({{passDataSeconds  }}) seconds  </p>
-  
   </div>
   
+  <!-- if theres theres data request made -->
   <div *ngIf="googleData">
     <!-- Display list of searc results -->
     <main role="main" class="flex-shrink-0" *ngFor="let item of googleData">
@@ -96,6 +106,8 @@
       </div>
     </main>
   </div>
+
+  <!-- if theres theres  no data request made -->
   <div *ngIf="!googleData">
     <!-- <p>No search result</p> -->
   
@@ -103,7 +115,10 @@
       <button mat-flat-button class="google-search " (click)="searchData()">
         Google Search
       </button>
-      <button mat-flat-button class="google-search ">I'm Feeling Lucky</button>
+      <!-- <button mat-flat-button class="google-search " [routerLink]="['/nextpage']" routerLinkActive="router-link-active" >
+        Google Search
+      </button> -->
+      <button mat-flat-button class="google-search " >I'm Feeling Lucky</button>
     </div>
   
     <div class="" style="text-align: center;">
@@ -113,6 +128,9 @@
     </div>
   </div>
   
+
+  <!-- footer  -->
+
   <div *ngIf="googleData">
    <div class="footer-img">
     <img src="../assets/google2.png" width="auto" height="35px" >
@@ -120,11 +138,11 @@
     <br>
     <br>
     <ul style="text-align: center; margin-top: -40px; ">
-        <li (click)="nextPage()" style="cursor:pointer">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
+        <li class="li-nextpg">1</li>
+        <li [routerLink]="['/nextpage']" routerLinkActive="router-link-active"  class="li-nextpg" (click)="nextPage()" style="cursor:pointer">2</li>
+        <li >3</li>
+        <li class="li-nextpg">4</li>
+        <li class="li-nextpg">5</li>
     </ul>
 
     <footer class="footer mt-auto py-3">
@@ -135,3 +153,5 @@
       </div>
     </footer>
   </div>
+
+  <!-- <app-nextpage [inputKeyword]="inputKeyword"></app-nextpage> -->

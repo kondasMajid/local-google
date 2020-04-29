@@ -1,5 +1,8 @@
 
  export interface IGoogleData{
+    queries: any;
+    items: any;
+    searchInformation: any;
     kind : string;
     title: string;
     htmlTitle: string;
@@ -10,5 +13,5 @@
     cacheId: string;
     formattedUrl:string;
     htmlFormattedUrl: string;
-
+    
 }

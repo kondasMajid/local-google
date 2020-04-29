@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const appRoutes: Routes = [
+  { path: '', component: IndexComponent },
   { path: 'index', component: IndexComponent },
   { path: 'nextpage',      component: NextpageComponent },
   // { path: 'hero/:id',      component: NextpageComponent },

@@ -12,12 +12,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchHeaderComponent } from './search-header/search-header.component';
 import { NextpageComponent } from './nextpage/nextpage.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { GoogleSearchComponent } from './google-search/google-search.component';
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     SearchHeaderComponent,
-    NextpageComponent
+    NextpageComponent,
+    GoogleSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { NextpageComponent } from './nextpage/nextpage.component';
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
