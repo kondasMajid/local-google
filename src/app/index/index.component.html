@@ -29,13 +29,13 @@
               style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" name="search" /> -->
 
               <!-- very new enter to proceed search  -->
-              <input id="search" type="text" placeholder=" google search" value=""
+              <!-- <input id="search" type="text" placeholder=" google search" value=""
               style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" #input  (keyup.enter)="searchData(input.value)" name="search" />
-         
+          -->
               
               <!-- your approach  -->
-         <!-- <input id="search" type="text" placeholder="" value=""
-          style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" (keyup)="searchData(event)" name="inputKeyword" />  -->
+        <input id="search" type="text" placeholder="" value=""
+          style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" (keyup.enter)="searchData(inputKeyword)" name="inputKeyword" /> 
      
             </div>
         </div>
@@ -67,7 +67,7 @@
                     </svg>
                   </button> -->
                 <input id="search" type="text" placeholder="" value=""
-                  style="border: 1px solid rgb(209, 209, 209); margin-top: 20px; width: 850px;" [(ngModel)]="inputKeyword"
+                  style="border: 1px solid rgb(209, 209, 209); margin-top: 20px; width: 850px;"  [(ngModel)]="inputKeyword" (keyup.enter)="searchData(inputKeyword)"
                   name="search" />
                   
               </div>
@@ -108,11 +108,10 @@
   </div>
 
   <!-- if theres theres  no data request made -->
+  <!-- button to click instead of key press  -->
   <div *ngIf="!googleData">
-    <!-- <p>No search result</p> -->
-  
     <div class="" style="text-align: center;">
-      <button mat-flat-button class="google-search " (click)="searchData()">
+      <button mat-flat-button class="google-search " (click)="searchData(inputKeyword)">
         Google Search
       </button>
       <!-- <button mat-flat-button class="google-search " [routerLink]="['/nextpage']" routerLinkActive="router-link-active" >
