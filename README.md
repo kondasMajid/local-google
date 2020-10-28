@@ -2,9 +2,14 @@
 
 # 
 
+## preview
 
-##Preview
-![Image of searched country](https://github.com/kondasMajid/local-google/blob/master/src/assets/preview.PNG)
+![Image of searched country](https://github.com/kondasMajid/local-google/blob/master/src/assets/home.PNG)
+
+
+## Search 
+
+![Image of searched country](https://github.com/kondasMajid/local-google/blob/master/src/assets/searched.PNG)
 
 Demo 
 
@@ -25,11 +30,3 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 
 
-## preview
-
-![Image of searched country](https://github.com/kondasMajid/local-google/blob/master/src/assets/home.PNG)
-
-
-## Search 
-
-![Image of searched country](https://github.com/kondasMajid/local-google/blob/master/src/assets/searched.PNG)
