@@ -4,7 +4,7 @@
 
 
 ##Preview
-![Image of searched country](https://github.com/kondasMajid/local-google/tree/master/src/assets/preview.png)
+![Image of searched country](https://github.com/kondasMajid/local-google/blob/master/src/assets/preview.PNG)
 
 Demo 
 
