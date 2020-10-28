@@ -1,73 +1,66 @@
 <div class="s006">
 
-  <!-- if theres no Api request  -->
+    <!-- if theres no Api request  -->
 
-  <form *ngIf="!googleData">
-    <fieldset>
-      <div class="inner-form">
-        <div class="input-field">
-          <button class="btn-search" type="button">
+    <form *ngIf="!googleData">
+        <fieldset>
+            <div class="inner-form">
+                <div class="input-field">
+                    <button class="btn-search" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path
                 d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
               </path>
             </svg>
           </button>
-          <input id="search" type="text" placeholder=" google search" value=""
-            style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" name="search" />
+                    <input id="search" type="text" placeholder=" google search" value="" style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" [(ngModel)]="inputKeyword" name="search" />
 
 
-          <!-- your approach  -->
-          <!-- <input id="search" type="text" placeholder="" value=""
-        style="border: 1px solid rgb(209, 209, 209); margin-top: 20px;" (keyup)="searchData(event)" name="inputKeyword" />  -->
-
-        </div>
-      </div>
-    </fieldset>
-  </form>
-
-
-  <!-- if theres is Api request  -->
-  <form *ngIf="googleData" class="showingForm" style="margin-top: 50px;     margin-right: 40%;">
-    <div class="row">
-      <div class="col-md-4">
-        <a [routerLink]="['/index']" routerLinkActive="router-link-active">
-          <img src="../assets/google2.png" class="center" />
-        </a>
-      </div>
-      <div class="col-md-8">
-        <fieldset>
-          <div class="inner-form">
-            <div class="input-field">
-          
-              <input id="search" type="text" placeholder="" value=""
-                style="border: 1px solid rgb(209, 209, 209); margin-top: 20px; width: 850px;" [(ngModel)]="inputKeyword"
-                name="search" />
-              <!-- <p>search in place</p> -->
+                </div>
             </div>
-
-          </div>
         </fieldset>
-      </div>
-    </div>
-  </form>
+    </form>
+
+
+    <!-- if theres is Api request  -->
+    <form *ngIf="googleData" class="showingForm" style="margin-top: 50px;     margin-right: 40%;">
+        <div class="row">
+            <div class="col-md-4">
+                <a [routerLink]="['/index']" routerLinkActive="router-link-active">
+                    <img src="../assets/google2.png" class="center" />
+                </a>
+            </div>
+            <div class="col-md-8">
+                <fieldset>
+                    <div class="inner-form">
+                        <div class="input-field">
+
+                            <input id="search" type="text" placeholder="" value="" style="border: 1px solid rgb(209, 209, 209); margin-top: 20px; width: 850px;" [(ngModel)]="inputKeyword" name="search" />
+
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
 </div>
 
 <!-- if theres no Api request -->
 
 <div *ngIf="!googleData">
-  <!-- <p>No search result</p> -->
+    <!-- <p>No search result</p> -->
 
-  <div class="" style="text-align: center;">
-    <button mat-flat-button class="google-search ">
+    <div class="" style="text-align: center;">
+        <button mat-flat-button class="google-search ">
       Google Search
     </button>
-    <button mat-flat-button class="google-search ">I'm Feeling Lucky</button>
-  </div>
+        <button mat-flat-button class="google-search ">I'm Feeling Lucky</button>
+    </div>
 
-  <div class="" style="text-align: center;">
-    <p>
-      Google offered in: <span style="color:#1a0dab">Hausa Akan Ewe Ga</span>
-    </p>
-  </div>
+    <div class="" style="text-align: center;">
+        <p>
+            Google offered in: <span style="color:#1a0dab">Hausa Akan Ewe Ga</span>
+        </p>
+    </div>
 </div>
