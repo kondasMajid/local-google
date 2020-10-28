@@ -1,4 +1,13 @@
-# Google
+# Google Custome Search - Angular
+
+# 
+
+
+##Preview
+![Image of searched country](https://github.com/kondasMajid/local-google/tree/master/src/assets/preview.png)
+
+Demo 
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
