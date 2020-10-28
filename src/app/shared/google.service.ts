@@ -36,20 +36,6 @@ export class GoogleService {
     return this.http.get<IGoogleData>('https://www.googleapis.com/customsearch/v1?key='
       + environment.apiKey + '&cx=' + environment.cx + '&q=' + input,
       this.requestOptions)
-  }
+  } 
 
-  // new method trying up for the debounce to take effect.
-  // getGoogle(input) : Observable<IGoogleData>{
-  //    return this.input.pipe((debounceTime(500), 
-  //   switchMap( text => this.http.get<IGoogleData>('https://www.googleapis.com/customsearch/v1?key='
-  //   + environment.apiKey + '&cx=' + environment.cx + '&q=' + input,
-  //  this.requestOptions)
-
-  //   ))) 
-
-  // error to search on google 
-
-  // Property 'pipe' does not exist on type 'string'.
-
-  // }
-}
+ }
